@@ -29,6 +29,39 @@ import rehypeHighlith from 'rehype-highlight/lib'
 import rehypeHighlith from 'rehype-highlight'
 ```
 
+### The correct solution!
+
+That was not the issue, though I don't see any example of using `rehype-highlight/lib` so I did leave it without. The problem is `rehype-highlight` only loads the core languages from `highlight.js`. Inform7 is not one of those. In order to add that one in there, it requires a couple of things.
+A great post by [JonathanMH](https://jonathanmh.com/p/syntax-highlighting-with-mdx-in-next-js/) spells it out perfectly!
+
+```typescript
+import rehypeHighlight from 'rehype-highlight'
+
+// using the first alias in supported languages
+import langInform7 from 'highlight.js/lib/languages/inform7'
+
+const languages = {
+  inform7: langInform7,
+  // If there were more missing, they'd be here
+}
+
+const aliases = {
+  inform7: 'i7',
+  // Same, I didn't actually check to see if this is needed
+}
+
+// then later, in mdxOptions...
+rehypePlugins: [
+  rehypePlugins: [
+    [rehypeHighlight, { ignoreMissing: true, // seemed a good idea
+    languages,
+    aliases
+    }],
+    //etc...
+  ]
+]
+```
+
 ```inform7
 Before going east to Kitchen for the first time:
 	say " As you enter the kitchen, the door slams shut behind you and you hear laughter on the other side. You're trapped!";
