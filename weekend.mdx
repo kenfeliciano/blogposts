@@ -19,13 +19,23 @@ console.log(sum(4, 8)) // 12
 ## Inform Code Highlighting Test
 
 I doubt this will work properly. Even though highlight.js says it supports Inform7 with either inform7 or i7, I think this is the same highlighter used in Obsidian and therefore it will fail. Unless it is a newer version that does support it?!
+Errors galore, removed
 
-```i7
-Alice is a woman.
-The player is Alice.
+## CSS Code Highlighting
 
-Alan is a man in Old Cabin.
-Now the player is Alan.
+Just seeing if it is something else going on!
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.prose :where(code):not(:where([class~='not-prose'] *))::before {
+  content: '';
+}
+.prose :where(code):not(:where([class~='not-prose'] *))::after {
+  content: '';
+}
 ```
 
 <Video id='6h649f2fB9Q' />
