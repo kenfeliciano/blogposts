@@ -19,7 +19,25 @@ console.log(sum(4, 8)) // 12
 ## Inform Code Highlighting Test
 
 I doubt this will work properly. Even though highlight.js says it supports Inform7 with either inform7 or i7, I think this is the same highlighter used in Obsidian and therefore it will fail. Unless it is a newer version that does support it?!
-Errors galore, removed
+Errors galore, removed. Trying again. I think adding `/lib` limited the number of languages.
+
+```javascript
+// Was
+import rehypeHighlith from 'rehype-highlight/lib'
+
+//Now
+import rehypeHighlith from 'rehype-highlight'
+```
+
+```inform7
+Before going east to Kitchen for the first time:
+	say " As you enter the kitchen, the door slams shut behind you and you hear laughter on the other side. You're trapped!";
+	now the printed name of Kitchen is "";
+	Kname returns in zero turns from now.
+
+At the time when Kname returns:
+	now the printed name of Kitchen is "Kitchen".
+```
 
 ## CSS Code Highlighting
 
